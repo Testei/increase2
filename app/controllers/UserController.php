@@ -38,7 +38,6 @@ class UserController extends ControllerBase
 		}
 		var_dump($poids);
 		$this->view->setVar("poids",$poids);
-		
 	}
 }
 
