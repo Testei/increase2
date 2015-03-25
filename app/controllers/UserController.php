@@ -23,18 +23,23 @@ class UserController extends ControllerBase
 		
 		$this->view->setVar("nameprojet",$nameprojet);
 		
+		$poids = null;
 		//$id=;
 		//var_dump($id);
-		for($i=0; $i < count($nameprojet);$i++ ) {
-			$id = $nameprojet[$i]->id;		
+		for($i=0; $i < count($nameprojet); $i++ ) {
+			$id = $nameprojet[$i]->id;	
+			
 			$tmpPoid[$i] = Usecase::find("idProjet=".$id);
-			$poids[$i] = $tmpPoid[0]->poids;
+			
+			for($j=0; $j<count($tmpPoid);$j++){
+				$poids[$i] = array("poids"=> $tmpPoid[$j]->poids, "avancement"=>$tmpPoid[$j]->avancement);			
+			}			
+			
 		}
-		
+		var_dump($poids);
 		$this->view->setVar("poids",$poids);
 		
 	}
-
 }
 
 ?>
