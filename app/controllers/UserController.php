@@ -18,17 +18,20 @@ class UserController extends ControllerBase
 		$user = User::findFirst($idUser);
 		$this->view->setVar("user",$user);
 		
-	//	$nameprojet = Projet::findFirst($idUser);
+		//charge toute les données du projet
 		$nameprojet = Projet::find("idClient=".$idUser);
-		var_dump($nameprojet[1]);
+		
 		$this->view->setVar("nameprojet",$nameprojet);
+		
 		//$id=;
 		//var_dump($id);
+		for($i=0; $i < count($nameprojet);$i++ ) {
+			$id = $nameprojet[$i]->id;		
+			$tmpPoid[$i] = Usecase::find("idProjet=".$id);
+			$poids[$i] = $tmpPoid[0]->poids;
+		}
 		
-		$idProject = Projet :: find("id=".$id);
-		$poids = Usecase::find("poids=".$idProject);
 		$this->view->setVar("poids",$poids);
-		
 		
 	}
 
