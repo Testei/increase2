@@ -1,0 +1,12 @@
+<div>
+<?php 
+//var_dump($nameprojet);
+echo "<h1> Mes projets ".$user->identite."</h1> ";
+
+for($i=0; $i < count($nameprojet);$i++ ) {
+echo $nameprojet[$i]->nom;
+}
+
+echo $this->getContent();
+?>
+</div>
