@@ -1,0 +1,15 @@
+<div>
+<?php 
+//var_dump($nameprojet);
+echo "<h1> Mes projets ".$user->identite."</h1> ";
+
+for($i=0; $i < count($nameprojet);$i++ ) {
+echo $nameprojet[$i]->nom;
+echo '</br>';
+
+echo '<a  href="/increase2/author/project/'.$nameprojet[$i]->id.'" type=button>Ouvrir...</a></br>';
+}
+echo $this->getContent();
+
+?>
+</div>
