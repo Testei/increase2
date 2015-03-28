@@ -37,7 +37,18 @@ class UserController extends ControllerBase
 		*/
 	}
 	public function projectAction($id){
+		$projet = Projet::findFirst($id);
+		$this->view->setVar('projet', $projet);
+		$user = $projet->getUser();
+		$this->view->setVar('user', $user);
+		//$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+		$this->view->setVar('idProjet', $id);
+		$this->jquery->get("project/equipe/".$id, "#detailProject");
+		$this->jquery->get("project/message/".$id, "#messagesProject");
+		$this->jquery->click("#btnMessages", $this->jquery->toggle("#messagesProject"));
+		//$this->jquery->getAndBindTo("#btnRetour", "click", 'user/projects/'.$user->getId(), "body");
 		
+		$this->jquery->compile($this->view);
 	}
 }
 

@@ -42,6 +42,7 @@ class Projet extends \Phalcon\Mvc\Model
     /**
      * Independent Column Mapping.
      */
+    
     public function columnMap()
     {
         return array(
@@ -52,6 +53,31 @@ class Projet extends \Phalcon\Mvc\Model
             'dateFinPrevue' => 'dateFinPrevue', 
             'idClient' => 'idClient'
         );
+    }
+
+	/*
+	 * Getter et setter pour récupéré plus facilement des données
+	 */
+    public function  getId(){
+    	return $this->id;
+    }
+    public function  getNom(){
+    	return $this->nom;
+    }
+    public function  getdescription(){
+    	return $this->description;
+    }
+    public function  getdateL(){
+    	return $this->dateLancement;
+    }
+    public function  getDateF(){
+    	return $this->dateFinPrevue;
+    }
+    public function  getIdClient(){
+    	return $this->idClient;
+    }
+    public function getUser(){
+    	return $this->idClient;
     }
 
 }

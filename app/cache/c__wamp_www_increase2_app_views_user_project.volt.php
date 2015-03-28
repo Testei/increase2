@@ -1,4 +1,4 @@
-{{script_foot}} 
+<?php echo $script_foot; ?> 
 <?php
 echo "<h1>". $projet->getnom()." [".$projet->getUser ()->getidentite ()."] </h1>";
 echo "<div class=\"panel panel-warning\">
