@@ -36,6 +36,9 @@ class UserController extends ControllerBase
 		$this->view->setVar("poids",$poids);
 		*/
 	}
+	public function projectAction($id){
+		
+	}
 }
 
 ?>
