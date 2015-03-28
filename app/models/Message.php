@@ -2,7 +2,6 @@
 
 class Message extends \Phalcon\Mvc\Model
 {
-
     /**
      *
      * @var integer
@@ -60,5 +59,12 @@ class Message extends \Phalcon\Mvc\Model
             'idFil' => 'idFil'
         );
     }
-
+    
+    public function getIdProjet(){
+    	return $this->idProjet;
+    }
+    public function getContent(){
+    	return $this->content;
+    }
+   
 }

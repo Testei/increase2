@@ -16,22 +16,16 @@ echo "<div class=\"panel panel-warning\">
 </div>
 </div>
 
-<!--  <a class="btn btn-default" id="btnMessages">Voir les messages</a>
+ <a class="btn btn-default" id="btnMessages">Voir les messages</a>
 <div class="panel panel-warning">
-<div class="panel-heading" id="listeMessages" >Messages</div>
-<div class="panel-body" >-->
-<form>
-	<input type=checkbox id="btnMessages" >Masquer/afficher
-</form>
-<div id="listeMessages">
-	<p>Zone à afficher/masquer</p>
-</div>
-
-</div>
+<div class="panel-heading" id="listeMessages" >
+<div id="dtlMessage"><?php //$messages->getContent()?></div>
 </div>
 
 <?php 
-echo '<a href="/increase2/user/projects/'.$projet->getId().'" class="btn btn-default" id="Retour">Fermer le projet</a>';
+echo '<a href="/increase2/user/projects/'.$projet->getIdClient().'" class="btn btn-default" id="Retour">Fermer le projet</a>';
 ?>
+
+
 
 <?=$script_foot ?>
