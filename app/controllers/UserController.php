@@ -44,11 +44,23 @@ class UserController extends ControllerBase
 		//$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 		$this->view->setVar('idProjet', $id);
 		$this->jquery->get("project/equipe/".$id, "#detailProject");
-		$this->jquery->get("project/message/".$id, "#messagesProject");
-		$this->jquery->click("#btnMessages", $this->jquery->toggle("#messagesProject"));
+		$this->jquery->get("project/message/".$id, "##listeMessages");
+		
+		$bootstrap=$this->jquery->bootstrap();
+		
+		//$bootstrap->htmlButton("listeMessages","Messages");
+		
+		//$this->jquery->click("#btnMessages","Afficher les Messages", $this->jquery->toggle("#listeMessages"));
 		//$this->jquery->getAndBindTo("#btnRetour", "click", 'user/projects/'.$user->getId(), "body");
 		
+		$this->jquery->doJQueryAndBindTo("#btnMessages","change", "#listeMessages", "toggle", "$('#btnMessage').is(':checked')");
+		//rien : element /  # : id / . : class
+		
+		
 		$this->jquery->compile($this->view);
+	}
+	public function buttonsAction(){
+
 	}
 }
 

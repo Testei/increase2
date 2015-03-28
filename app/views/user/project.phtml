@@ -1,7 +1,5 @@
-{{script_foot}} 
 <?php
-echo "<h1>". $projet->getnom()//." [".$projet->getUser ()->getidentite ()."]
-." </h1>";
+echo "<h1>". $projet->getnom()." </h1>";
 echo "<div class=\"panel panel-warning\">
 <div class=\"panel-heading\">Details du projet</div>
   <div class=\"panel-body\">
@@ -18,11 +16,22 @@ echo "<div class=\"panel panel-warning\">
 </div>
 </div>
 
-<a class="btn btn-default" id="AfficherMessage">Messages</a>
+<!--  <a class="btn btn-default" id="btnMessages">Voir les messages</a>
 <div class="panel panel-warning">
-<div class="panel-heading">Messages</div>
-<div class="panel-body" id="listemessages">
+<div class="panel-heading" id="listeMessages" >Messages</div>
+<div class="panel-body" >-->
+<form>
+	<input type=checkbox id="btnMessages" >Masquer/afficher
+</form>
+<div id="listeMessages">
+	<p>Zone à afficher/masquer</p>
+</div>
+
 </div>
 </div>
 
-<a class="btn btn-default" id="Retour">Fermer le projet</a>
+<?php 
+echo '<a href="/increase2/user/projects/'.$projet->getId().'" class="btn btn-default" id="Retour">Fermer le projet</a>';
+?>
+
+<?=$script_foot ?>
