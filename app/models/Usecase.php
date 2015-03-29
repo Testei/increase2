@@ -53,5 +53,7 @@ class Usecase extends \Phalcon\Mvc\Model
             'idDev' => 'idDev'
         );
     }
-
+	
+    //Getteur pour récupérer les données
+    
 }

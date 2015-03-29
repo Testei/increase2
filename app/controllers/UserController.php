@@ -41,10 +41,12 @@ class UserController extends ControllerBase
 		$this->view->setVar('projet', $projet);
 		$user = $projet->getUser();
 		$this->view->setVar('user', $user);
-		//$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+		
+		
+		$projet = projet::findFirst ( "id = $id" );
 		$this->view->setVar('idProjet', $id);
-		$this->jquery->get("project/equipe/".$id, "#detailProject");
-		$this->jquery->get("project/message/".$id, "##listeMessages");
+		$this->jquery->get("user/project/equipe/".$id,"#detailProject");
+		$this->jquery->get("user/project/message/".$id, "#listeMessages");
 		
 		$bootstrap=$this->jquery->bootstrap();
 		
@@ -53,14 +55,19 @@ class UserController extends ControllerBase
 		//$this->jquery->click("#btnMessages","Afficher les Messages", $this->jquery->toggle("#listeMessages"));
 		//$this->jquery->getAndBindTo("#btnRetour", "click", 'user/projects/'.$user->getId(), "body");
 		
-		$this->jquery->doJQueryAndBindTo("#btnMessages","change", "#listeMessages", "toggle", "$('#btnMessage').is(':checked')");
+		//$this->jquery->doJQueryAndBindTo("#btnMessages","change", "#listeMessages", "toggle", "$('#btnMessage').is(':checked')");
 		//rien : element /  # : id / . : class
+		
+		$messages = Message::find(array("idMessage" => $id));
+		foreach ($messages as $message) {
+			$this->jquery->getAndBindTo("#btnMessage", "click", "toggle","#listeMessages");
+		}
+		$this->view->setVar("messages", $messages);
+		
+		
 		
 		
 		$this->jquery->compile($this->view);
-	}
-	public function buttonsAction(){
-
 	}
 }
 
